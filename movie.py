@@ -49,7 +49,11 @@ def recommend(movie):
 
 movie = st.text_input('What is your favorite movie?', 'Shrek')
 
-recs = recommend(movie)
+try:
+    recs = recommend(movie)
+except:
+    recs = recommend('Shrek')
+    st.write('No matches for', movie)
 
 recs.rename(columns = {'title':'Film', 'match':'Match', 'genres':'Genres'}, inplace=True)
 recs['Match'] = recs['Match'].map('{:.1%}'.format)
