@@ -22,11 +22,6 @@ movie_user = movie_df.pivot_table(index='userId',columns='title',values='rating'
 def recommend(movie):
     movie_matches = [col for col in movie_df.title if
                     movie in col]
-    try:
-        match1 = movie_matches[0]
-    except:
-        print('No matches found for', movie)
-        return()
         
     print('Finding recommendations for:', match1)
     
