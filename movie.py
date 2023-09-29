@@ -22,6 +22,11 @@ movie_user = movie_df.pivot_table(index='userId',columns='title',values='rating'
 def recommend(movie):
     movie_matches = [col for col in movie_df.title if
                     movie in col]
+    try:
+        match1 = movie_matches[0]
+    except:
+        print('No matches found for', movie)
+        return()
         
     print('Finding recommendations for:', match1)
     
@@ -44,11 +49,7 @@ def recommend(movie):
 
 movie = st.text_input('What is your favorite movie?', 'Shrek')
 
-try:
-    recs = recommend(movie)
-except:
-    recs = recommend('Shrek')
-    st.write('No matches for', movie)
+recs = recommend(movie)
 
 recs.rename(columns = {'title':'Film', 'match':'Match', 'genres':'Genres'}, inplace=True)
 recs['Match'] = recs['Match'].map('{:.1%}'.format)
