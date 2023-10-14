@@ -5,11 +5,6 @@ import datetime
 
 import nfl_data_py as nfl
 
-from PIL import Image
-import requests
-from io import BytesIO
-from IPython.display import display
-
 ## cd "ali/Documents/Grad/DSC 680/Projects/Project 2"
 
 st.title('Quarterback Rating Data')
