@@ -144,7 +144,10 @@ q = st.slider("Number of Questions:", 5, max_qs, value=10, step=1)
 
 ### Generating the PDF
 
-pdf = generate(category, diff, q)
+on = st.toggle('', value=True)
+
+if on:
+    pdf = generate(category, diff, q)
 
 with open("ths.pdf", "rb") as file:
     btn=st.download_button(
