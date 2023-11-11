@@ -144,12 +144,9 @@ q = st.slider("Number of Questions:", 5, max_qs, value=10, step=1)
 
 ### Generating the PDF
 
-on = st.toggle('', value=True)
+pdf = generate(category, diff, q)
 
-if on:
-    pdf = generate(category, diff, q)
-
-with open("ths.pdf", "rb") as file:
+with open(pdf, "rb") as file:
     btn=st.download_button(
     label="Generate Trivia Host Sheet",
     data=file,
