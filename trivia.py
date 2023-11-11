@@ -81,7 +81,7 @@ def create_pdf(select, category, topics):
         pdf.multi_cell(pg_w, 5, txt=src, align='C')
         pdf.ln(5)
         
-    return pdf.output(name='ths.pdf', dest='S')
+    return pdf.output(name='ths.pdf', dest='F')
 
 ### Inputting User Settings
 
