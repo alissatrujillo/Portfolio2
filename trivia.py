@@ -60,13 +60,13 @@ def create_pdf(select, category, topics):
     topics = ', '.join(topics)
     tpc = 'Topics included: ' + topics
     pdf.set_font('helvetica', size=10)
-    pdf.multi_cell(pg_w, 5, txt=tpc, ln=1, align='C')
+    pdf.multi_cell(pg_w, 5, txt=tpc, align='C')
     pdf.ln(5)
 
     for i, question in select.iterrows():
         ques = 'Question #' + str(i+1) + ': ' + question['Question']
         pdf.set_font('helvetica', 'B', size=14)
-        pdf.multi_cell(pg_w, 7.5, txt=ques, ln=1, align='C')
+        pdf.multi_cell(pg_w, 7.5, txt=ques, align='C')
         
         top_dif = 'Topic: ' + question['Topic'] + ' // Difficulty: ' + question['Difficulty']
         pdf.set_font('helvetica', size=10)
@@ -78,7 +78,7 @@ def create_pdf(select, category, topics):
         
         src = 'Source: ' + str(question['Source'])
         pdf.set_font('helvetica', size=10)
-        pdf.multi_cell(pg_w, 5, txt=src, ln=1, align='C')
+        pdf.multi_cell(pg_w, 5, txt=src, align='C')
         pdf.ln(5)
         
     return pdf.output(name='ths.pdf', dest='S')
