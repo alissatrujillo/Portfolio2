@@ -20,7 +20,7 @@ def load_data(year):
 
 data_load_state = st.text('')
 
-pbp, qbr, df_players, df_teams = load_data(2023)
+pbp, qbr, df_players, df_teams = load_data(2024)
 
 data_load_state.text('')
 
@@ -31,7 +31,7 @@ c1.subheader('Top QBR by Year')
 
 yr = c1.selectbox(
    "Year",
-   ("2023", "2022", "2021", "2020", "2019", "2018", "2017"),
+   ("2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017"),
    index=0,
    placeholder=str(current_year),
 )
